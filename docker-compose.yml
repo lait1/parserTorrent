@@ -17,17 +17,7 @@ services:
       context: ./docker/php-fpm
     volumes:
       - ./:/symfony
-    container_name: ${PROJECT_NAME}-php-fpm
-    links:
-      - mysql
-
-  php-cli:
-    build:
-      context: ./docker/php-cli
-    volumes:
-      - ./:/symfony
-    command: sleep 10000
-    container_name: ${PROJECT_NAME}-php-cli
+    container_name: ${PROJECT_NAME}-fpm
     links:
       - mysql
   pma:
