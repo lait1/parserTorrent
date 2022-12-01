@@ -2,12 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa051e80-bfba-4a83-b280-fa510096af3a" name="Default Changelist" comment="Create Entity Product">
-      <change afterPath="$PROJECT_DIR$/templates/main/default/edit_product.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Entity/Serials.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Enum/SourcesEnum.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Infrastructure/Repository/SerialsRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/parser-tor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/parser-tor.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/access.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/access.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/error.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20221128170836.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Product.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ProductRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/_embed/_footer.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/_embed/_header.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/_embed/_menu/_desktop_menu.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/_embed/_menu/_mobile_menu.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/default/edit_product.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/edit_link.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +42,16 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitRewordedCommitMessages">
+    <option name="commitMessagesMapping">
+      <RewordedCommitMessageMapping>
+        <option name="originalMessage" value="Start symfony" />
+        <option name="rewordedMessage" value="WIP&#10;&#10;&#10;WIP&#10;&#10;&#10;Create Entity Product&#10;&#10;&#10;Add templates&#10;&#10;&#10;Start symfony" />
+      </RewordedCommitMessageMapping>
+    </option>
+    <option name="currentCommit" value="1" />
+    <option name="onto" value="3796bb8f148ecfc618c5c93a281fefb6d2b9ae44" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -157,6 +189,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/security-guard" />
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-code" />
       <path value="$PROJECT_DIR$/vendor/twig/extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
     </include_path>
   </component>
   <component name="ProjectId" id="2IB8pk9HdXlKhGLiXkWcYCQRAz6" />
@@ -172,7 +205,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/main/default" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -205,7 +238,11 @@
       <workItem from="1669646089178" duration="10085000" />
       <workItem from="1669704359036" duration="2710000" />
       <workItem from="1669707104914" duration="442000" />
-      <workItem from="1669748859956" duration="989000" />
+      <workItem from="1669748859956" duration="2111000" />
+      <workItem from="1669792666501" duration="5000" />
+      <workItem from="1669793021789" duration="1995000" />
+      <workItem from="1669832491714" duration="601000" />
+      <workItem from="1669878811064" duration="685000" />
     </task>
     <task id="LOCAL-00001" summary="Start docker">
       <created>1669651967646</created>
@@ -242,7 +279,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669706520634</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="WIP">
+      <created>1669750059868</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669750059868</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,6 +305,9 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/parserTorrent" />
+    </ignored-roots>
     <MESSAGE value="Start docker" />
     <MESSAGE value="Start symfony" />
     <MESSAGE value="Add templates" />

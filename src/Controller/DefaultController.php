@@ -2,10 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Product;
-use phpDocumentor\Reflection\Types\This;
+use App\Domain\Enum\SourcesEnum;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,52 +11,57 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController extends AbstractController
 {
     /**
-     * @Route("/", name="homePage")
+     * @Route("/", name="serials_list")
      */
-    public function index(): Response
+    public function indexAction(): Response
     {
-        $entityManager = $this->getDoctrine()->getManager();
-        $product = $entityManager->getRepository(Product::class)->findAll();
+        $links = [
+            ['id' => 1,
+                'link' => 'ya.com',
+                'name' => 'Anime name',
+                'type' => SourcesEnum::ANILIBRIA(),
+                'updateAt' => time()],
+            ['id' => 2,
+                'link' => 'ya.com',
+                'name' => 'Film name',
+                'type' => SourcesEnum::RUTOR(),
+                'updateAt' => time()],
 
-        return $this->render('main/default/index.html.twig', [
-            'controller_name' => 'DefaultController',
+        ];
+        return $this->render('default/index.html.twig', [
+            'links' => $links,
         ]);
     }
 
     /**
-     * @Route("/product-add", name="product-add")
+     * @Route("/serials/add/", name="serials_add",  methods={"GET"})
      */
-    public function productAdd(): Response
+    public function addSerialsAction(Request $request): Response
     {
-      $product = new Product();
-      $product->setTitle('Product' . round(1,10));
-      $product->setDescription('Some');
-      $product->setPrice('1060');
-      $product->setQuantity(1);
 
-     $entityManager = $this->getDoctrine()->getManager();
-     $entityManager->persist($product);
-     $entityManager->flush();
-
-     return $this->redirectToRoute('homePage');
     }
 
     /**
-     * @Route("/edit-product/{id}", methods="GET|POST", name="product-edit", requirements={"id"="\d+"})
-     * @Route("/add-product", methods="GET|POST", name="add_product")
+     * @Route("/serials/{id}/edit/", name="serials_edit",  methods={"GET"})
      */
-    public function productEdit(Request $request, int $id = null): Response
+    public function editSerialsAction(Request $request, int $id): Response
     {
-        $entityManager = $this->getDoctrine()->getManager();
-       if ($id){
-           $product = $entityManager->getRepository(Product::class)->find($id);
-       }else{
-           $product = new Product();
-       }
-       $form = $this->createFormBuilder($product)->add('title', TextType::class)->getForm();
 
-        return $this->render('main/default/edit_product.html.twig', [
-            'form' => $form->createView(),
-        ]);
+    }
+
+    /**
+     * @Route("/serials/store/", name="serials_store",  methods={"POST"})
+     */
+    public function storeSerialsAction(Request $request): Response
+    {
+        return $this->redirectToRoute('serials_list');
+    }
+
+    /**
+     * @Route("/serials/{id}/remove/", name="serials_remove",  methods={"POST"})
+     */
+    public function removeSerialsAction(Request $request, int $id): Response
+    {
+        return $this->redirectToRoute('serials_list');
     }
 }

@@ -20,6 +20,15 @@ services:
     container_name: ${PROJECT_NAME}-fpm
     links:
       - mysql
+  php-cli:
+    build:
+      context: ./docker/php-cli
+    volumes:
+      - ./:/symfony
+    container_name: ${PROJECT_NAME}-cli
+    command: sleep 10000
+    links:
+      - mysql
   pma:
     image: phpmyadmin/phpmyadmin
     restart: always
