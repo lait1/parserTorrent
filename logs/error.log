@@ -683,3 +683,4 @@
 2022/12/01 07:25:29 [notice] 1#1: start worker process 32
 2022/12/01 07:25:29 [notice] 1#1: start worker process 33
 2022/12/01 07:25:29 [notice] 1#1: start worker process 34
+2022/12/01 19:34:29 [error] 28#28: *184 FastCGI sent in stderr: "PHP message: 2022-12-01T19:34:29+00:00 [critical] Uncaught Error: syntax error, unexpected '$this' (T_VARIABLE)" while reading upstream, client: 172.19.0.1, server: , request: "POST /serials/store/ HTTP/1.1", upstream: "fastcgi://172.19.0.4:9000", host: "localhost:8080", referrer: "http://localhost:8080/"

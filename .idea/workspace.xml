@@ -2,34 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa051e80-bfba-4a83-b280-fa510096af3a" name="Default Changelist" comment="Create Entity Product">
-      <change afterPath="$PROJECT_DIR$/src/Domain/Entity/Serials.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/Enum/SourcesEnum.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Infrastructure/Repository/SerialsRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/parser-tor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/parser-tor.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Service/SerialService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Infrastructure/API/ApiClient.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/default/edit.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/access.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/access.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/error.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20221128170836.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ProductRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/_embed/_footer.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/_embed/_header.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/_embed/_menu/_desktop_menu.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/_embed/_menu/_mobile_menu.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/default/edit_product.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/edit_link.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/default/edit_link.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/create.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,18 +184,18 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TF_FMT" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/main/default" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/default" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/default" />
       <recent name="$PROJECT_DIR$/templates/main/default" />
       <recent name="$PROJECT_DIR$/templates/main/_embed/_menu" />
       <recent name="$PROJECT_DIR$/templates/main/_embed" />
       <recent name="$PROJECT_DIR$/docker/pfp-fpm" />
-      <recent name="$PROJECT_DIR$/docker" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/templates/main" />
@@ -242,7 +223,8 @@
       <workItem from="1669792666501" duration="5000" />
       <workItem from="1669793021789" duration="1995000" />
       <workItem from="1669832491714" duration="601000" />
-      <workItem from="1669878811064" duration="685000" />
+      <workItem from="1669878811064" duration="2085000" />
+      <workItem from="1669896581123" duration="6484000" />
     </task>
     <task id="LOCAL-00001" summary="Start docker">
       <created>1669651967646</created>
@@ -286,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669750059868</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="WIP">
+      <created>1669880219860</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1669880219861</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
