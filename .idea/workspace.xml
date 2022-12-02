@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa051e80-bfba-4a83-b280-fa510096af3a" name="Default Changelist" comment="Create Entity Product">
-      <change afterPath="$PROJECT_DIR$/src/Domain/Service/SerialService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Infrastructure/API/ApiClient.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/default/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Application/ParserSerialsCommand.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/access.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/access.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/default/edit_link.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/create.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/error.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,6 +219,8 @@
       <workItem from="1669832491714" duration="601000" />
       <workItem from="1669878811064" duration="2085000" />
       <workItem from="1669896581123" duration="6484000" />
+      <workItem from="1669957001560" duration="4000" />
+      <workItem from="1669966966903" duration="850000" />
     </task>
     <task id="LOCAL-00001" summary="Start docker">
       <created>1669651967646</created>

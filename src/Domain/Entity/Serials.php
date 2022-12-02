@@ -2,6 +2,7 @@
 
 namespace App\Domain\Entity;
 
+use App\Domain\Enum\SourcesEnum;
 use App\Infrastructure\Repository\SerialsRepository;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
@@ -84,9 +85,9 @@ class Serials
         return $this->name;
     }
 
-    public function getTypeSource(): string
+    public function getTypeSource(): SourcesEnum
     {
-        return $this->typeSource;
+        return new SourcesEnum($this->typeSource);
     }
 
     public function getUpdatedAt(): string

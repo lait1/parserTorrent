@@ -684,3 +684,128 @@
 2022/12/01 07:25:29 [notice] 1#1: start worker process 33
 2022/12/01 07:25:29 [notice] 1#1: start worker process 34
 2022/12/01 19:34:29 [error] 28#28: *184 FastCGI sent in stderr: "PHP message: 2022-12-01T19:34:29+00:00 [critical] Uncaught Error: syntax error, unexpected '$this' (T_VARIABLE)" while reading upstream, client: 172.19.0.1, server: , request: "POST /serials/store/ HTTP/1.1", upstream: "fastcgi://172.19.0.4:9000", host: "localhost:8080", referrer: "http://localhost:8080/"
+2022/12/01 19:58:37 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2022/12/01 19:58:37 [notice] 27#27: gracefully shutting down
+2022/12/01 19:58:37 [notice] 29#29: gracefully shutting down
+2022/12/01 19:58:37 [notice] 33#33: gracefully shutting down
+2022/12/01 19:58:37 [notice] 27#27: exiting
+2022/12/01 19:58:37 [notice] 33#33: exiting
+2022/12/01 19:58:37 [notice] 29#29: exiting
+2022/12/01 19:58:37 [notice] 33#33: exit
+2022/12/01 19:58:37 [notice] 27#27: exit
+2022/12/01 19:58:37 [notice] 29#29: exit
+2022/12/01 19:58:37 [notice] 31#31: gracefully shutting down
+2022/12/01 19:58:37 [notice] 32#32: gracefully shutting down
+2022/12/01 19:58:37 [notice] 30#30: gracefully shutting down
+2022/12/01 19:58:37 [notice] 31#31: exiting
+2022/12/01 19:58:37 [notice] 30#30: exiting
+2022/12/01 19:58:37 [notice] 30#30: exit
+2022/12/01 19:58:37 [notice] 31#31: exit
+2022/12/01 19:58:37 [notice] 32#32: exiting
+2022/12/01 19:58:37 [notice] 32#32: exit
+2022/12/01 19:58:37 [notice] 34#34: gracefully shutting down
+2022/12/01 19:58:37 [notice] 28#28: gracefully shutting down
+2022/12/01 19:58:37 [notice] 34#34: exiting
+2022/12/01 19:58:37 [notice] 28#28: exiting
+2022/12/01 19:58:37 [notice] 34#34: exit
+2022/12/01 19:58:37 [notice] 28#28: exit
+2022/12/01 19:58:37 [notice] 1#1: signal 17 (SIGCHLD) received from 34
+2022/12/01 19:58:37 [notice] 1#1: worker process 34 exited with code 0
+2022/12/01 19:58:37 [notice] 1#1: signal 29 (SIGIO) received
+2022/12/01 19:58:37 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+2022/12/01 19:58:37 [notice] 1#1: worker process 31 exited with code 0
+2022/12/01 19:58:37 [notice] 1#1: signal 29 (SIGIO) received
+2022/12/01 19:58:37 [notice] 1#1: signal 17 (SIGCHLD) received from 29
+2022/12/01 19:58:37 [notice] 1#1: worker process 29 exited with code 0
+2022/12/01 19:58:37 [notice] 1#1: signal 29 (SIGIO) received
+2022/12/01 19:58:37 [notice] 1#1: signal 17 (SIGCHLD) received from 32
+2022/12/01 19:58:37 [notice] 1#1: worker process 32 exited with code 0
+2022/12/01 19:58:37 [notice] 1#1: signal 29 (SIGIO) received
+2022/12/01 19:58:37 [notice] 1#1: signal 17 (SIGCHLD) received from 27
+2022/12/01 19:58:37 [notice] 1#1: worker process 27 exited with code 0
+2022/12/01 19:58:37 [notice] 1#1: signal 29 (SIGIO) received
+2022/12/01 19:58:37 [notice] 1#1: signal 17 (SIGCHLD) received from 33
+2022/12/01 19:58:37 [notice] 1#1: worker process 33 exited with code 0
+2022/12/01 19:58:37 [notice] 1#1: signal 29 (SIGIO) received
+2022/12/01 19:58:37 [notice] 1#1: signal 17 (SIGCHLD) received from 30
+2022/12/01 19:58:37 [notice] 1#1: worker process 30 exited with code 0
+2022/12/01 19:58:37 [notice] 1#1: signal 29 (SIGIO) received
+2022/12/01 19:58:37 [notice] 1#1: signal 17 (SIGCHLD) received from 28
+2022/12/01 19:58:37 [notice] 1#1: worker process 28 exited with code 0
+2022/12/01 19:58:37 [notice] 1#1: exit
+2022/12/02 19:27:16 [notice] 1#1: using the "epoll" event method
+2022/12/02 19:27:16 [notice] 1#1: nginx/1.23.2
+2022/12/02 19:27:16 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2022/12/02 19:27:16 [notice] 1#1: OS: Linux 5.4.0-132-generic
+2022/12/02 19:27:16 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2022/12/02 19:27:16 [notice] 1#1: start worker processes
+2022/12/02 19:27:16 [notice] 1#1: start worker process 28
+2022/12/02 19:27:16 [notice] 1#1: start worker process 29
+2022/12/02 19:27:16 [notice] 1#1: start worker process 30
+2022/12/02 19:27:16 [notice] 1#1: start worker process 31
+2022/12/02 19:27:16 [notice] 1#1: start worker process 32
+2022/12/02 19:27:16 [notice] 1#1: start worker process 33
+2022/12/02 19:27:16 [notice] 1#1: start worker process 34
+2022/12/02 19:27:16 [notice] 1#1: start worker process 35
+2022/12/02 20:15:30 [error] 28#28: *27 FastCGI sent in stderr: "PHP message: 2022-12-02T20:15:30+00:00 [critical] Uncaught Exception: Cannot autowire service "App\Infrastructure\API\ApiClient": argument "$client" of method "__construct()" references interface "GuzzleHttp\ClientInterface" but no such service exists. Did you create a class that implements this interface?" while reading upstream, client: 172.19.0.1, server: , request: "GET / HTTP/1.1", upstream: "fastcgi://172.19.0.5:9000", host: "localhost:8080"
+2022/12/02 20:15:39 [error] 28#28: *27 FastCGI sent in stderr: "PHP message: 2022-12-02T20:15:39+00:00 [critical] Uncaught Exception: Cannot autowire service "App\Infrastructure\API\ApiClient": argument "$client" of method "__construct()" references interface "GuzzleHttp\ClientInterface" but no such service exists. Did you create a class that implements this interface?" while reading upstream, client: 172.19.0.1, server: , request: "GET / HTTP/1.1", upstream: "fastcgi://172.19.0.5:9000", host: "localhost:8080"
+2022/12/02 20:17:02 [error] 28#28: *33 FastCGI sent in stderr: "PHP message: 2022-12-02T20:17:02+00:00 [critical] Uncaught Exception: The service "App\Infrastructure\API\ApiClient" has a dependency on a non-existent service "guzzle_client"" while reading upstream, client: 172.19.0.1, server: , request: "GET / HTTP/1.1", upstream: "fastcgi://172.19.0.5:9000", host: "localhost:8080"
+2022/12/02 20:17:04 [error] 28#28: *33 FastCGI sent in stderr: "PHP message: 2022-12-02T20:17:04+00:00 [critical] Uncaught Exception: The service "App\Infrastructure\API\ApiClient" has a dependency on a non-existent service "guzzle_client"" while reading upstream, client: 172.19.0.1, server: , request: "GET / HTTP/1.1", upstream: "fastcgi://172.19.0.5:9000", host: "localhost:8080"
+2022/12/02 20:18:46 [error] 28#28: *38 FastCGI sent in stderr: "PHP message: 2022-12-02T20:18:46+00:00 [critical] Uncaught Exception: The configuration key "guzzle_client" is unsupported for definition "App\" in "/symfony/config/services.yaml". Allowed configuration keys are "resource", "namespace", "exclude", "parent", "shared", "lazy", "public", "abstract", "deprecated", "factory", "arguments", "properties", "configurator", "calls", "tags", "autowire", "autoconfigure", "bind" in /symfony/config/services.yaml (which is being imported from "/symfony/src/Kernel.php")" while reading upstream, client: 172.19.0.1, server: , request: "GET / HTTP/1.1", upstream: "fastcgi://172.19.0.5:9000", host: "localhost:8080"
+2022/12/02 22:14:17 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2022/12/02 22:14:17 [notice] 33#33: gracefully shutting down
+2022/12/02 22:14:17 [notice] 33#33: exiting
+2022/12/02 22:14:17 [notice] 33#33: exit
+2022/12/02 22:14:17 [notice] 34#34: gracefully shutting down
+2022/12/02 22:14:17 [notice] 34#34: exiting
+2022/12/02 22:14:17 [notice] 34#34: exit
+2022/12/02 22:14:17 [notice] 32#32: gracefully shutting down
+2022/12/02 22:14:17 [notice] 32#32: exiting
+2022/12/02 22:14:17 [notice] 32#32: exit
+2022/12/02 22:14:17 [notice] 35#35: gracefully shutting down
+2022/12/02 22:14:17 [notice] 35#35: exiting
+2022/12/02 22:14:17 [notice] 30#30: gracefully shutting down
+2022/12/02 22:14:17 [notice] 35#35: exit
+2022/12/02 22:14:17 [notice] 30#30: exiting
+2022/12/02 22:14:17 [notice] 31#31: gracefully shutting down
+2022/12/02 22:14:17 [notice] 30#30: exit
+2022/12/02 22:14:17 [notice] 31#31: exiting
+2022/12/02 22:14:17 [notice] 31#31: exit
+2022/12/02 22:14:17 [notice] 29#29: gracefully shutting down
+2022/12/02 22:14:17 [notice] 28#28: gracefully shutting down
+2022/12/02 22:14:17 [notice] 29#29: exiting
+2022/12/02 22:14:17 [notice] 28#28: exiting
+2022/12/02 22:14:17 [notice] 28#28: exit
+2022/12/02 22:14:17 [notice] 29#29: exit
+2022/12/02 22:14:17 [notice] 1#1: signal 17 (SIGCHLD) received from 30
+2022/12/02 22:14:17 [notice] 1#1: worker process 28 exited with code 0
+2022/12/02 22:14:17 [notice] 1#1: worker process 30 exited with code 0
+2022/12/02 22:14:17 [notice] 1#1: signal 29 (SIGIO) received
+2022/12/02 22:14:17 [notice] 1#1: signal 17 (SIGCHLD) received from 28
+2022/12/02 22:14:17 [notice] 1#1: signal 17 (SIGCHLD) received from 32
+2022/12/02 22:14:17 [notice] 1#1: worker process 32 exited with code 0
+2022/12/02 22:14:17 [notice] 1#1: worker process 29 exited with code 0
+2022/12/02 22:14:17 [notice] 1#1: worker process 31 exited with code 0
+2022/12/02 22:14:17 [notice] 1#1: signal 29 (SIGIO) received
+2022/12/02 22:14:17 [notice] 1#1: signal 17 (SIGCHLD) received from 29
+2022/12/02 22:14:17 [notice] 1#1: signal 17 (SIGCHLD) received from 35
+2022/12/02 22:14:17 [notice] 1#1: worker process 35 exited with code 0
+2022/12/02 22:14:17 [notice] 1#1: signal 29 (SIGIO) received
+2022/12/02 22:14:17 [notice] 1#1: signal 17 (SIGCHLD) received from 34
+2022/12/02 22:14:17 [notice] 1#1: worker process 34 exited with code 0
+2022/12/02 22:14:17 [notice] 1#1: worker process 33 exited with code 0
+2022/12/02 22:14:17 [notice] 1#1: exit
+2022/12/02 22:14:24 [notice] 1#1: using the "epoll" event method
+2022/12/02 22:14:24 [notice] 1#1: nginx/1.23.2
+2022/12/02 22:14:24 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2022/12/02 22:14:24 [notice] 1#1: OS: Linux 5.4.0-132-generic
+2022/12/02 22:14:24 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2022/12/02 22:14:24 [notice] 1#1: start worker processes
+2022/12/02 22:14:24 [notice] 1#1: start worker process 29
+2022/12/02 22:14:24 [notice] 1#1: start worker process 30
+2022/12/02 22:14:24 [notice] 1#1: start worker process 31
+2022/12/02 22:14:24 [notice] 1#1: start worker process 32
+2022/12/02 22:14:24 [notice] 1#1: start worker process 33
+2022/12/02 22:14:24 [notice] 1#1: start worker process 34
+2022/12/02 22:14:24 [notice] 1#1: start worker process 35
+2022/12/02 22:14:24 [notice] 1#1: start worker process 36

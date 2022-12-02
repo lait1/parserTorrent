@@ -2,7 +2,6 @@
 
 namespace App\Domain\Service;
 
-
 use App\Domain\DTO\SeriesDTO;
 use App\Domain\Entity\Serials;
 use App\Infrastructure\Repository\SerialsRepository;
