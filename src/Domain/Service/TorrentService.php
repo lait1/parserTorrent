@@ -5,7 +5,12 @@ namespace App\Domain\Service;
 
 
 use App\Domain\Entity\Serials;
+use App\Domain\Event\InformEvent;
 use App\Domain\Service\SourceStrategy\TorrentStrategyDefiner;
+use App\Infrastructure\API\ApiClient;
+use Psr\Log\LoggerInterface;
+use Symfony\Component\EventDispatcher\EventDispatcher;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class TorrentService
 {
@@ -13,16 +18,28 @@ class TorrentService
 
     private SerialService $serialService;
 
+    private EventDispatcherInterface $eventDispatcher;
+
+    public LoggerInterface $logger;
+
+    public ApiClient $apiClient;
+
     private string $pathUploads;
 
     public function __construct(
         TorrentStrategyDefiner $strategyDefiner,
         SerialService $serialService,
+        EventDispatcherInterface $eventDispatcher,
+        ApiClient $apiClient,
+        LoggerInterface $logger,
         string $pathUploads
     ){
         $this->strategyDefiner = $strategyDefiner;
         $this->serialService = $serialService;
         $this->pathUploads = $pathUploads;
+        $this->eventDispatcher = $eventDispatcher;
+        $this->apiClient = $apiClient;
+        $this->logger = $logger;
     }
 
     public function findNewSeries(): void
@@ -46,6 +63,10 @@ class TorrentService
             $url = $tracker->getTorrentFileLink($serials->getLink());
             $this->download($url, $serials->getName());
         }
+
+        $event = new InformEvent("Вышла новая серия сериала: {$serials->getName()}");
+
+        $this->eventDispatcher->dispatch($event, InformEvent::NEW);
     }
 
     public function download($url, $name): void

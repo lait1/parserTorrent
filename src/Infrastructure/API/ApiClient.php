@@ -4,24 +4,30 @@ namespace App\Infrastructure\API;
 
 
 use GuzzleHttp\ClientInterface;
+use TelegramBot\Api\BotApi;
 
 class ApiClient
 {
     private ClientInterface $client;
 
+    private BotApi $telegramBot;
+
+    private array $messageRecipients;
+
     public function __construct(
-        ClientInterface $client
+        ClientInterface $client,
+        string $telegramToken,
+        array $messageRecipients
     ){
         $this->client = $client;
+        $this->telegramBot = new BotApi($telegramToken);
+        $this->messageRecipients = $messageRecipients;
     }
 
-    public function getContent(string $url): string
+    public function sendMessage(string $message): void
     {
-        $response = $this->client->request('GET', $url);
-//        $resource = \GuzzleHttp\Psr7\Utils::tryFopen('/path/to/file', 'w');
-//        $stream = \GuzzleHttp\Psr7\Utils::streamFor($resource);
-//        $this->client->request('GET', $url, ['save_to' => $stream]);
-
-        return (string) $response->getBody();
+        foreach ($this->messageRecipients as $recipient) {
+            $this->telegramBot->sendMessage($recipient, $message);
+        }
     }
 }

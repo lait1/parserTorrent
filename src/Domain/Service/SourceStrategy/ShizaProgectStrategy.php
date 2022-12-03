@@ -33,6 +33,7 @@ class ShizaProgectStrategy implements TorrentStrategyInterface
 
     public function getTorrentFileLink(string $link): string
     {
+
         try {
             $crawler = $this->getContent($link);
 
