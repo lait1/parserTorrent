@@ -4,15 +4,22 @@ namespace App\Domain\Service;
 
 use App\Domain\DTO\SeriesDTO;
 use App\Domain\Entity\Serials;
+use App\Domain\Event\InformEvent;
 use App\Infrastructure\Repository\SerialsRepository;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class SerialService
 {
     private SerialsRepository $serialsRepository;
 
-    public function __construct(SerialsRepository $serialsRepository)
-    {
+    private EventDispatcherInterface $eventDispatcher;
+
+    public function __construct(
+        SerialsRepository $serialsRepository,
+        EventDispatcherInterface $eventDispatcher
+    ){
         $this->serialsRepository = $serialsRepository;
+        $this->eventDispatcher = $eventDispatcher;
     }
 
     public function getAllSerials(): array
@@ -45,5 +52,13 @@ class SerialService
         $this->serialsRepository->save($serial);
     }
 
+    public function updateSerial(Serials $serial, int $numberSeries): void
+    {
+        $serial->setLastSeries($numberSeries);
 
+        $event = new InformEvent("Вышла новая {$numberSeries} серия сериала: {$serial->getName()}");
+
+        $this->eventDispatcher->dispatch($event, InformEvent::NAME);
+        $this->serialsRepository->save($serial);
+    }
 }

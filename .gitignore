@@ -9,6 +9,7 @@
 /vendor/
 ###< symfony/framework-bundle ###
 .idea
+/logs
 ###> phpunit/phpunit ###
 /phpunit.xml
 .phpunit.result.cache

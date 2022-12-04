@@ -8,9 +8,7 @@ use Symfony\Contracts\EventDispatcher\Event;
 
 class InformEvent extends Event
 {
-    public const NEW = 'monitoring.new.series';
-
-    public const FINISH = 'monitoring.inform.finish';
+    public const NAME = 'monitoring.inform';
 
     private string $message;
 

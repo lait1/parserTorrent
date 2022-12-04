@@ -112,4 +112,9 @@ class Serials
     {
         return $this->lastSeries;
     }
+
+    public function setLastSeries(int $lastSeries): void
+    {
+        $this->lastSeries = $lastSeries;
+    }
 }
