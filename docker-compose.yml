@@ -20,6 +20,14 @@ services:
     container_name: ${PROJECT_NAME}-fpm
     links:
       - mysql
+  cron:
+    build:
+      context: ./docker/cron
+    volumes:
+      - ./:/symfony
+    container_name: ${PROJECT_NAME}-cron
+    links:
+      - mysql
   php-cli:
     build:
       context: ./docker/php-cli
