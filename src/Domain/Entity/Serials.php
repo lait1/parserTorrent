@@ -67,7 +67,7 @@ class Serials
         $this->lastSeries = $lastSeries;
         $this->typeSource = $typeSource;
         $this->description = $description;
-        $this->createdAt = new \DateTime();
+        $this->createdAt = new \DateTime('now', new \DateTimeZone('Asia/Tbilisi'));
     }
 
     public function getId(): int
@@ -116,5 +116,7 @@ class Serials
     public function setLastSeries(int $lastSeries): void
     {
         $this->lastSeries = $lastSeries;
+        $this->updatedAt = new \DateTime("now", new \DateTimeZone('Asia/Tbilisi'));
     }
+
 }

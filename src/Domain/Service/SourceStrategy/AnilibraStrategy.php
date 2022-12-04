@@ -33,7 +33,11 @@ class AnilibraStrategy implements TorrentStrategyInterface
 
             return $crawler->filter('.torrent-download-link')->last()->link()->getUri();
         } catch (\Throwable $e) {
-            dd($e);
+            throw new \LogicException('Fail get last series',
+                [
+                    'message' => $e->getMessage(),
+                    'link' => $link
+                ]);
         }
     }
     public function checkNewSeries(string $link): int
@@ -42,10 +46,14 @@ class AnilibraStrategy implements TorrentStrategyInterface
             $crawler = $this->getContent($link);
             $forSearch = $crawler->filter('.torrentcol1')->last()->html();
 
-            preg_match('!' . 'Серия\ 1\-(\d)\ \[WEBRip\ 1080p\]' . '!',$forSearch, $matches);
+            preg_match('!' . 'Серия\ 1\-(\d+)' . '!',$forSearch, $matches);
             return $matches[1];
         } catch (\Throwable $e) {
-            dd($e);
+            throw new \LogicException('Fail get torrent link',
+                [
+                    'message' => $e->getMessage(),
+                    'link' => $link
+                ]);
         }
     }
 }

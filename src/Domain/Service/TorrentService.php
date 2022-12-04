@@ -18,9 +18,9 @@ class TorrentService
 
     private SerialService $serialService;
 
-    public LoggerInterface $logger;
+    private LoggerInterface $logger;
 
-    public ApiClient $apiClient;
+    private ApiClient $apiClient;
 
     private string $pathUploads;
 
