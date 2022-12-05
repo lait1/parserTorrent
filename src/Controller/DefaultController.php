@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Domain\DTO\SeriesDTO;
 use App\Domain\Enum\SourcesEnum;
 use App\Domain\Service\SerialService;
-use App\Infrastructure\Repository\SerialsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,11 +20,10 @@ class DefaultController extends AbstractController
     public function __construct(
         SerialService $serialService,
         SerializerInterface $serializer
-    ){
+    ) {
         $this->serializer = $serializer;
         $this->serialService = $serialService;
     }
-
 
     /**
      * @Route("/", name="serials_list")
@@ -36,7 +34,7 @@ class DefaultController extends AbstractController
 
         return $this->render('default/index.html.twig', [
             'links' => $links,
-            'types'=> SourcesEnum::toArray()
+            'types' => SourcesEnum::toArray(),
         ]);
     }
 
@@ -65,10 +63,9 @@ class DefaultController extends AbstractController
                 'json'
             );
             $this->serialService->createSerial($dto);
-        }catch (\Throwable $e){
+        } catch (\Throwable $e) {
             dd($e);
         }
-
 
         return $this->redirectToRoute('serials_list');
     }

@@ -1,16 +1,11 @@
 <?php
 
-
 namespace App\Domain\Service;
 
-
 use App\Domain\Entity\Serials;
-use App\Domain\Event\InformEvent;
 use App\Domain\Service\SourceStrategy\TorrentStrategyDefiner;
 use App\Infrastructure\API\ApiClient;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\EventDispatcher\EventDispatcher;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class TorrentService
 {
@@ -30,7 +25,7 @@ class TorrentService
         ApiClient $apiClient,
         LoggerInterface $logger,
         string $pathUploads
-    ){
+    ) {
         $this->strategyDefiner = $strategyDefiner;
         $this->serialService = $serialService;
         $this->pathUploads = $pathUploads;
@@ -38,41 +33,40 @@ class TorrentService
         $this->logger = $logger;
     }
 
-    public function findNewSeries(bool $disableParsing = false): void
+    public function findNewSeries(): void
     {
-       $serials = $this->serialService->getAllSerials();
+        $serials = $this->serialService->getAllSerials();
 
         foreach ($serials as $serial) {
             try {
-                $this->process($serial, $disableParsing);
+                $this->process($serial);
             } catch (\Throwable $e) {
                 $this->logger->error('Fail process check new series',
                     [
-                        'message' => $e->getMessage()
+                        'message' => $e->getMessage(),
                     ]);
                 continue;
             }
-       }
+        }
     }
 
-    private function process(Serials $serial, bool $disableParsing): void
+    private function process(Serials $serial): void
     {
-        $this->logger->info("Start parser", ['serial' => $serial->getName()]);
+        $this->logger->info('Start parser', ['serial' => $serial->getName()]);
 
         $tracker = $this->strategyDefiner->defineTorrentStrategy($serial->getTypeSource());
         $numberSeries = $tracker->checkNewSeries($serial->getLink());
 
-        if (!$disableParsing && $numberSeries > $serial->getLastSeries()) {
+        if ($numberSeries > $serial->getLastSeries()) {
             $this->logger->info("Found a new series {$numberSeries}}", ['serial' => $serial->getName()]);
 
             $url = $tracker->getTorrentFileLink($serial->getLink());
             $this->download($url, $serial->getName());
 
-            $this->logger->info("torrent files have been downloaded", ['serial' => $serial->getName()]);
+            $this->logger->info('torrent files have been downloaded', ['serial' => $serial->getName()]);
 
             $this->serialService->updateSerial($serial, $numberSeries);
         }
-
     }
 
     private function download(string $url, string $name): void

@@ -25,6 +25,5 @@ class SerialsRepository extends ServiceEntityRepository
     {
         $this->getEntityManager()->persist($serials);
         $this->getEntityManager()->flush();
-
     }
 }

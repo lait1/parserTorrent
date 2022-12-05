@@ -22,20 +22,19 @@ class Notificator implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            InformEvent::NAME => 'onInfoSeries'
+            InformEvent::NAME => 'onInfoSeries',
         ];
     }
 
     public function onInfoSeries(InformEvent $event): void
     {
         $this->logger->info('Send message', [
-            $event->getMessage()
+            $event->getMessage(),
         ]);
 //        try {
-            $this->apiClient->sendMessage($event->getMessage());
+        $this->apiClient->sendMessage($event->getMessage());
 //        } catch (\Throwable $exception) {
 //
 //        }
     }
-
 }

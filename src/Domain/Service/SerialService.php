@@ -17,7 +17,7 @@ class SerialService
     public function __construct(
         SerialsRepository $serialsRepository,
         EventDispatcherInterface $eventDispatcher
-    ){
+    ) {
         $this->serialsRepository = $serialsRepository;
         $this->eventDispatcher = $eventDispatcher;
     }
@@ -59,6 +59,5 @@ class SerialService
 
         $event = new InformEvent("Вышла новая {$numberSeries} серия сериала: {$serial->getName()}");
         $this->eventDispatcher->dispatch($event, InformEvent::NAME);
-
     }
 }

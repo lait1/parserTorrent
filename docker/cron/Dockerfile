@@ -14,7 +14,7 @@ RUN docker-php-ext-install pdo pdo_mysql zip
 #COPY crontab /etc/cron.d/crontab
 #
 #RUN chmod 0644 /etc/cron.d/crontab
-RUN crontab -l | { cat; echo "* * * * * /usr/local/bin/php /symfony/bin/console parse:serials >> /var/log/cron.log 2>&1"; } | crontab -
+RUN crontab -l | { cat; echo "*/10 * * * * /usr/local/bin/php /symfony/bin/console parse:serials >> /var/log/cron.log 2>&1"; } | crontab -
 
 RUN touch /var/log/cron.log
 

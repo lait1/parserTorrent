@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Domain\Event;
-
 
 use Symfony\Contracts\EventDispatcher\Event;
 

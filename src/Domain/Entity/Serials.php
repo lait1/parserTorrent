@@ -45,10 +45,10 @@ class Serials
     private string $description;
 
     /** @ORM\Column(name="created_at", type="datetime", nullable=false) */
-    private DateTime $createdAt;
+    private \DateTime $createdAt;
 
     /** @ORM\Column(name="updated_at", type="datetime", nullable=true) */
-    private DateTime $updatedAt;
+    private \DateTime $updatedAt;
 
     /**
      * @ORM\Column(type="boolean", options={"unsigned": true, "default": 0})
@@ -61,7 +61,7 @@ class Serials
         int $lastSeries,
         string $typeSource,
         string $description
-    ){
+    ) {
         $this->name = $name;
         $this->link = $link;
         $this->lastSeries = $lastSeries;
@@ -92,9 +92,10 @@ class Serials
 
     public function getUpdatedAt(): string
     {
-        if (!isset($this->updatedAt)){
+        if (!isset($this->updatedAt)) {
             return 'no parsing yet';
         }
+
         return $this->updatedAt->format('d-m-Y H:i:s');
     }
 
@@ -116,7 +117,6 @@ class Serials
     public function setLastSeries(int $lastSeries): void
     {
         $this->lastSeries = $lastSeries;
-        $this->updatedAt = new \DateTime("now", new \DateTimeZone('Asia/Tbilisi'));
+        $this->updatedAt = new \DateTime('now', new \DateTimeZone('Asia/Tbilisi'));
     }
-
 }

@@ -1,15 +1,9 @@
 <?php
 
-
 namespace App\Domain\Service\SourceStrategy;
 
-
 use App\Domain\Interfaces\TorrentStrategyInterface;
-use App\Infrastructure\API\ApiClient;
-use Doctrine\DBAL\Exception;
-use Psr\Log\LoggerInterface;
 use Symfony\Component\DomCrawler\Crawler;
-use Symfony\Component\Filesystem\Path;
 
 class ShizaProgectStrategy implements TorrentStrategyInterface
 {
@@ -26,9 +20,10 @@ class ShizaProgectStrategy implements TorrentStrategyInterface
 
     private function getContent(string $link): Crawler
     {
-        if ($this->content === null){
+        if (null === $this->content) {
             $this->content = file_get_contents($link);
         }
+
         return new Crawler($this->content, self::HTTPS_SHIZA_PROJECT_COM);
     }
 
@@ -39,11 +34,7 @@ class ShizaProgectStrategy implements TorrentStrategyInterface
 
             return $crawler->filter('.button-success')->link()->getUri();
         } catch (\Throwable $e) {
-            throw new \LogicException('Fail get last series',
-                [
-                    'message' => $e->getMessage(),
-                    'link' => $link
-                ]);
+            throw new \LogicException('Fail get last series', ['message' => $e->getMessage(), 'link' => $link]);
         }
     }
 
@@ -54,12 +45,7 @@ class ShizaProgectStrategy implements TorrentStrategyInterface
 
             return $crawler->filter('.release-online__nav button > span')->last()->html();
         } catch (\Throwable $e) {
-            throw new \LogicException('Fail get torrent link',
-                [
-                    'message' => $e->getMessage(),
-                    'link' => $link
-                ]);
+            throw new \LogicException('Fail get torrent link', ['message' => $e->getMessage(), 'link' => $link]);
         }
     }
-
 }

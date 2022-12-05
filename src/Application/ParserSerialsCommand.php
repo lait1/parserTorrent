@@ -1,9 +1,7 @@
 <?php
 
-
 namespace App\Application;
 
-use App\Domain\Service\SerialService;
 use App\Domain\Service\TorrentService;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -26,7 +24,7 @@ class ParserSerialsCommand extends Command
         $this->torrentService->findNewSeries();
 
         $output->writeln('Finish finding new series');
-        return Command::SUCCESS;
 
+        return Command::SUCCESS;
     }
 }
