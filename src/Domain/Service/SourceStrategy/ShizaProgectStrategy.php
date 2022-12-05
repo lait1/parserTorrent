@@ -2,6 +2,7 @@
 
 namespace App\Domain\Service\SourceStrategy;
 
+use App\Domain\Exceptions\FailParseSiteException;
 use App\Domain\Interfaces\TorrentStrategyInterface;
 use Symfony\Component\DomCrawler\Crawler;
 
@@ -34,7 +35,7 @@ class ShizaProgectStrategy implements TorrentStrategyInterface
 
             return $crawler->filter('.button-success')->link()->getUri();
         } catch (\Throwable $e) {
-            throw new \LogicException('Fail get last series', ['message' => $e->getMessage(), 'link' => $link]);
+            throw new FailParseSiteException('Fail get last series', ['message' => $e->getMessage(), 'link' => $link]);
         }
     }
 
@@ -45,7 +46,7 @@ class ShizaProgectStrategy implements TorrentStrategyInterface
 
             return $crawler->filter('.release-online__nav button > span')->last()->html();
         } catch (\Throwable $e) {
-            throw new \LogicException('Fail get torrent link', ['message' => $e->getMessage(), 'link' => $link]);
+            throw new FailParseSiteException('Fail get torrent link', ['message' => $e->getMessage(), 'link' => $link]);
         }
     }
 }

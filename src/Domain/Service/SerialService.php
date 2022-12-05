@@ -57,7 +57,7 @@ class SerialService
         $serial->setLastSeries($numberSeries);
         $this->serialsRepository->save($serial);
 
-        $event = new InformEvent("Вышла новая {$numberSeries} серия сериала: {$serial->getName()}");
+        $event = new InformEvent("Вышла новая {$numberSeries} серия: {$serial->getLink()}");
         $this->eventDispatcher->dispatch($event, InformEvent::NAME);
     }
 }

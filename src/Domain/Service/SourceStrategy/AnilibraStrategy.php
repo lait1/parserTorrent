@@ -2,6 +2,7 @@
 
 namespace App\Domain\Service\SourceStrategy;
 
+use App\Domain\Exceptions\FailParseSiteException;
 use App\Domain\Interfaces\TorrentStrategyInterface;
 use Symfony\Component\DomCrawler\Crawler;
 
@@ -34,7 +35,7 @@ class AnilibraStrategy implements TorrentStrategyInterface
 
             return $crawler->filter('.torrent-download-link')->last()->link()->getUri();
         } catch (\Throwable $e) {
-            throw new \LogicException('Fail get last series', ['message' => $e->getMessage(), 'link' => $link]);
+            throw new FailParseSiteException("Fail get last series {$e->getMessage()} Link: {$link}");
         }
     }
 
@@ -48,7 +49,7 @@ class AnilibraStrategy implements TorrentStrategyInterface
 
             return $matches[1];
         } catch (\Throwable $e) {
-            throw new \LogicException('Fail get torrent link', ['message' => $e->getMessage(), 'link' => $link]);
+            throw new FailParseSiteException("Fail get torrent message {$e->getMessage()}  Link: {$link}");
         }
     }
 }
