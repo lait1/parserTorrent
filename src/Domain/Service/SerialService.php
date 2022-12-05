@@ -55,10 +55,10 @@ class SerialService
     public function updateSerial(Serials $serial, int $numberSeries): void
     {
         $serial->setLastSeries($numberSeries);
+        $this->serialsRepository->save($serial);
 
         $event = new InformEvent("Вышла новая {$numberSeries} серия сериала: {$serial->getName()}");
-
         $this->eventDispatcher->dispatch($event, InformEvent::NAME);
-        $this->serialsRepository->save($serial);
+
     }
 }
