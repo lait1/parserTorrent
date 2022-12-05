@@ -47,6 +47,7 @@ class DefaultController extends AbstractController
 
         return $this->render('default/edit.html.twig', [
             'link' => $link,
+            'types' => SourcesEnum::toArray(),
         ]);
     }
 
@@ -62,7 +63,11 @@ class DefaultController extends AbstractController
                 SeriesDTO::class,
                 'json'
             );
-            $this->serialService->createSerial($dto);
+            if (null !== $dto->id) {
+                $this->serialService->updateSerial($dto);
+            } else {
+                $this->serialService->createSerial($dto);
+            }
         } catch (\Throwable $e) {
             dd($e);
         }

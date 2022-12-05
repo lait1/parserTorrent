@@ -119,4 +119,29 @@ class Serials
         $this->lastSeries = $lastSeries;
         $this->updatedAt = new \DateTime('now', new \DateTimeZone('Asia/Tbilisi'));
     }
+
+    public function setDescription(string $description): void
+    {
+        $this->description = $description;
+    }
+
+    public function setTypeSource(string $typeSource): void
+    {
+        $this->typeSource = $typeSource;
+    }
+
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    public function setLink(string $link): void
+    {
+        $this->link = $link;
+    }
+
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
 }

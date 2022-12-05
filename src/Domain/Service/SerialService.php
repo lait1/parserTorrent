@@ -52,7 +52,20 @@ class SerialService
         $this->serialsRepository->save($serial);
     }
 
-    public function updateSerial(Serials $serial, int $numberSeries): void
+    public function updateSerial(SeriesDTO $dto): void
+    {
+        $serial = $this->findSerial($dto->id);
+
+        $serial->setLastSeries($dto->lastSeries);
+        $serial->setDescription($dto->description);
+        $serial->setLink($dto->link);
+        $serial->setName($dto->name);
+        $serial->setTypeSource($dto->typeSource);
+
+        $this->serialsRepository->save($serial);
+    }
+
+    public function updateNumberSerial(Serials $serial, int $numberSeries): void
     {
         $serial->setLastSeries($numberSeries);
         $this->serialsRepository->save($serial);

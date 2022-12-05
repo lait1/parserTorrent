@@ -6,6 +6,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class SeriesDTO
 {
+    public ?string $id = null;
+
     /** @Assert\NotBlank(message="name not found") */
     public string $name;
 

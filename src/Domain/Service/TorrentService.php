@@ -74,7 +74,7 @@ class TorrentService
 
             $this->logger->info('torrent files have been downloaded', ['serial' => $serial->getName()]);
 
-            $this->serialService->updateSerial($serial, $numberSeries);
+            $this->serialService->updateNumberSerial($serial, $numberSeries);
         }
     }
 
