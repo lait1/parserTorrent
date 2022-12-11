@@ -31,10 +31,7 @@ class Notificator implements EventSubscriberInterface
         $this->logger->info('Send message', [
             $event->getMessage(),
         ]);
-//        try {
+
         $this->apiClient->sendMessage($event->getMessage());
-//        } catch (\Throwable $exception) {
-//
-//        }
     }
 }

@@ -3,7 +3,6 @@
 namespace App\Domain\Service\SourceStrategy;
 
 use App\Domain\Enum\SourcesEnum;
-use App\Domain\Interfaces\TorrentStrategyInterface;
 
 class TorrentStrategyDefiner
 {
@@ -23,14 +22,14 @@ class TorrentStrategyDefiner
         $this->shizaProgectStrategy = $shizaProgectStrategy;
     }
 
-    public function defineTorrentStrategy(SourcesEnum $sourcesEnum): TorrentStrategyInterface
+    public function defineTorrentStrategy(SourcesEnum $sourcesEnum): AbstractSourceStrategy
     {
         switch ($sourcesEnum) {
             case SourcesEnum::SHIZA_PROJECT():
                 return $this->shizaProgectStrategy;
             case SourcesEnum::ANILIBRIA():
                 return $this->anilibraStrategy;
-//            case SourcesEnum::RUTOR():
+            case SourcesEnum::RUTOR():
 //                return $this->rutorStrategy;
         }
 

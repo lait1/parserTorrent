@@ -3,35 +3,21 @@
 namespace App\Domain\Service\SourceStrategy;
 
 use App\Domain\Exceptions\FailParseSiteException;
-use App\Domain\Interfaces\TorrentStrategyInterface;
+use GuzzleHttp\Client;
 use Symfony\Component\DomCrawler\Crawler;
 
-class AnilibraStrategy implements TorrentStrategyInterface
+class AnilibraStrategy extends AbstractSourceStrategy
 {
-    private const HTTPS_WWW_ANILIBRIA_TV = 'https://www.anilibria.tv/';
-
-    private string $pathUploads;
-
-    private ?string $content = null;
-
-    public function __construct(string $pathUploads)
+    protected function getSource(): string
     {
-        $this->pathUploads = $pathUploads;
+        return 'https://www.anilibria.tv/';
     }
 
-    private function getContent(string $link): Crawler
+    protected function getTorrentFileLink(): string
     {
-        if (null === $this->content) {
-            $this->content = file_get_contents($link);
-        }
-
-        return new Crawler($this->content, self::HTTPS_WWW_ANILIBRIA_TV);
-    }
-
-    public function getTorrentFileLink(string $link): string
-    {
+        $link = $this->serial->getLink();
         try {
-            $crawler = $this->getContent($link);
+            $crawler = parent::getContent($link);
 
             return $crawler->filter('.torrent-download-link')->last()->link()->getUri();
         } catch (\Throwable $e) {
@@ -39,10 +25,11 @@ class AnilibraStrategy implements TorrentStrategyInterface
         }
     }
 
-    public function checkNewSeries(string $link): int
+    public function checkNewSeries(): int
     {
+        $link = $this->serial->getLink();
         try {
-            $crawler = $this->getContent($link);
+            $crawler = parent::getContent($link);
             $forSearch = $crawler->filter('.torrentcol1')->last()->html();
 
             preg_match('!Серия\ 1\-(\d+)!', $forSearch, $matches);

@@ -3,33 +3,18 @@
 namespace App\Domain\Service\SourceStrategy;
 
 use App\Domain\Exceptions\FailParseSiteException;
-use App\Domain\Interfaces\TorrentStrategyInterface;
-use Symfony\Component\DomCrawler\Crawler;
 
-class ShizaProgectStrategy implements TorrentStrategyInterface
+/** @deprecated */
+class ShizaProgectStrategy extends AbstractSourceStrategy
 {
-    private const HTTPS_SHIZA_PROJECT_COM = 'https://shiza-project.com';
-
-    private string $pathUploads;
-
-    private ?string $content = null;
-
-    public function __construct(string $pathUploads)
+    protected function getSource(): string
     {
-        $this->pathUploads = $pathUploads;
+        return 'https://shiza-project.com/';
     }
 
-    private function getContent(string $link): Crawler
+    protected function getTorrentFileLink(): string
     {
-        if (null === $this->content) {
-            $this->content = file_get_contents($link);
-        }
-
-        return new Crawler($this->content, self::HTTPS_SHIZA_PROJECT_COM);
-    }
-
-    public function getTorrentFileLink(string $link): string
-    {
+        $link = $this->serial->getLink();
         try {
             $crawler = $this->getContent($link);
 
@@ -39,8 +24,9 @@ class ShizaProgectStrategy implements TorrentStrategyInterface
         }
     }
 
-    public function checkNewSeries(string $link): int
+    public function checkNewSeries(): int
     {
+        $link = $this->serial->getLink();
         try {
             $crawler = $this->getContent($link);
 
