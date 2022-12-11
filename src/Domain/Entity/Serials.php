@@ -3,6 +3,9 @@
 namespace App\Domain\Entity;
 
 use App\Domain\Enum\SourcesEnum;
+use App\Infrastructure\Repository\SerialsRepository;
+use DateTime;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=SerialsRepository::class)
