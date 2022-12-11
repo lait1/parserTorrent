@@ -19,29 +19,19 @@ class Serials
      */
     private int $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    /** @ORM\Column(type="string", length=255) */
     private string $name;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    /** @ORM\Column(type="string", length=255) */
     private string $link;
 
-    /**
-     * @ORM\Column(type="string", length=20)
-     */
+    /** @ORM\Column(type="string", length=20) */
     private string $typeSource;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
+    /** @ORM\Column(type="integer") */
     private string $lastSeries;
 
-    /**
-     * @ORM\Column(type="text")
-     */
+    /** @ORM\Column(type="text") */
     private string $description;
 
     /** @ORM\Column(name="created_at", type="datetime", nullable=false) */
@@ -50,9 +40,7 @@ class Serials
     /** @ORM\Column(name="updated_at", type="datetime", nullable=true) */
     private \DateTime $updatedAt;
 
-    /**
-     * @ORM\Column(type="boolean", options={"unsigned": true, "default": 0})
-     */
+    /** @ORM\Column(type="boolean", options={"unsigned": true, "default": 0}) */
     private bool $isDeleted = false;
 
     public function __construct(

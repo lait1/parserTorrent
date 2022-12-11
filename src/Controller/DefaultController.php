@@ -46,7 +46,7 @@ class DefaultController extends AbstractController
         $link = $this->serialService->findSerial($id);
 
         return $this->render('default/edit.html.twig', [
-            'link' => $link,
+            'link'  => $link,
             'types' => SourcesEnum::toArray(),
         ]);
     }

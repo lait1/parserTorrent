@@ -6,8 +6,6 @@ use App\Domain\Entity\Serials;
 use App\Domain\Event\InformEvent;
 use App\Domain\Exceptions\FailParseSiteException;
 use App\Domain\Service\SourceStrategy\TorrentStrategyDefiner;
-use App\Infrastructure\API\ApiClient;
-use GuzzleHttp\Client;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
@@ -20,7 +18,6 @@ class TorrentService
     private LoggerInterface $logger;
 
     private EventDispatcherInterface $eventDispatcher;
-
 
     public function __construct(
         TorrentStrategyDefiner $strategyDefiner,
