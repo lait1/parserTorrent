@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Domain\DTO\SeriesDTO;
 use App\Domain\Enum\SourcesEnum;
 use App\Domain\Service\SerialService;
+use App\Domain\Service\TorrentService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,14 +16,18 @@ class DefaultController extends AbstractController
 {
     private SerialService $serialService;
 
+    private TorrentService $torrentService;
+
     private SerializerInterface $serializer;
 
     public function __construct(
         SerialService $serialService,
-        SerializerInterface $serializer
+        SerializerInterface $serializer,
+        TorrentService $torrentService
     ) {
         $this->serializer = $serializer;
         $this->serialService = $serialService;
+        $this->torrentService = $torrentService;
     }
 
     /**
@@ -49,6 +54,16 @@ class DefaultController extends AbstractController
             'link'  => $link,
             'types' => SourcesEnum::toArray(),
         ]);
+    }
+
+    /**
+     * @Route("/checking-series/", name="checking_series",  methods={"GET"})
+     */
+    public function checkingSeriesAction(): Response
+    {
+        $this->torrentService->findNewSeries();
+
+        return $this->redirectToRoute('serials_list');
     }
 
     /**
