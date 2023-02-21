@@ -6,16 +6,28 @@ use App\Domain\Exceptions\FailParseSiteException;
 
 class AnilibraStrategy extends AbstractSourceStrategy
 {
+    private string $order;
+
     public function checkNewSeries(): int
     {
         $link = $this->serial->getLink();
         try {
             $crawler = parent::getContent($link);
-            $forSearch = $crawler->filter('.torrentcol1')->last()->html();
+            $lastSearch = $crawler->filter('.torrentcol1')->last()->html();
+            $firstSearch = $crawler->filter('.torrentcol1')->first()->html();
 
-            preg_match('!Серия\ 1\-(\d+)!', $forSearch, $matches);
+            preg_match('!Серия\ 1\-(\d+)!', $lastSearch, $matchesLastSearch);
+            preg_match('!Серия\ 1\-(\d+)!', $firstSearch, $matchesFirstSearch);
 
-            return $matches[1];
+            if ($matchesLastSearch[1] > $matchesFirstSearch[1]){
+                $this->order = 'last';
+                $result = $matchesLastSearch[1];
+            }else{
+                $this->order = 'first';
+                $result = $matchesFirstSearch[1];
+            }
+
+            return $result;
         } catch (\Throwable $e) {
             throw new FailParseSiteException("Fail get torrent message {$e->getMessage()}  Link: {$link}");
         }
@@ -32,7 +44,12 @@ class AnilibraStrategy extends AbstractSourceStrategy
         try {
             $crawler = parent::getContent($link);
 
-            return $crawler->filter('.torrent-download-link')->last()->link()->getUri();
+            if ($this->order === 'last') {
+                return $crawler->filter('.torrent-download-link')->last()->link()->getUri();
+            }
+
+            return $crawler->filter('.torrent-download-link')->first()->link()->getUri();
+
         } catch (\Throwable $e) {
             throw new FailParseSiteException("Fail get last series {$e->getMessage()} Link: {$link}");
         }

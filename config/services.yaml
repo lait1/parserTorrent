@@ -16,7 +16,7 @@ services:
             $telegramToken: '%env(TELEGRAM_KEY)%'
             $messageRecipients: [
                     428434368,
-#                    671408858
+                    671408858
             ]
 
 
