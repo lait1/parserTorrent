@@ -30,7 +30,7 @@ class TorrentStrategyDefiner
             case SourcesEnum::ANILIBRIA():
                 return $this->anilibraStrategy;
             case SourcesEnum::RUTOR():
-//                return $this->rutorStrategy;
+                return $this->rutorStrategy;
         }
 
         throw new \LogicException('Undefined type');
