@@ -25,8 +25,6 @@ class TorrentStrategyDefiner
     public function defineTorrentStrategy(SourcesEnum $sourcesEnum): AbstractSourceStrategy
     {
         switch ($sourcesEnum) {
-            case SourcesEnum::SHIZA_PROJECT():
-                return $this->shizaProgectStrategy;
             case SourcesEnum::ANILIBRIA():
                 return $this->anilibraStrategy;
             case SourcesEnum::RUTOR():

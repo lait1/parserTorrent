@@ -16,15 +16,18 @@ class AnilibraStrategy extends AbstractSourceStrategy
             $lastSearch = $crawler->filter('.torrentcol1')->last()->html();
             $firstSearch = $crawler->filter('.torrentcol1')->first()->html();
 
-            preg_match('!Серия\ 1\-(\d+)!', $lastSearch, $matchesLastSearch);
-            preg_match('!Серия\ 1\-(\d+)!', $firstSearch, $matchesFirstSearch);
+            preg_match('!Серия\ (\d+)\-(\d+)!', $lastSearch, $matchesLastSearch);
+            preg_match('!Серия\ (\d+)\-(\d+)!', $firstSearch, $matchesFirstSearch);
 
-            if ($matchesLastSearch[1] > $matchesFirstSearch[1]){
+            $firstSearchSeries = $matchesFirstSearch[2] ?? 1;
+            $lastSearchSeries = $matchesLastSearch[2] ?? 1;
+
+            if ($lastSearchSeries > $firstSearchSeries){
                 $this->order = 'last';
-                $result = $matchesLastSearch[1];
+                $result = $lastSearchSeries;
             }else{
                 $this->order = 'first';
-                $result = $matchesFirstSearch[1];
+                $result = $firstSearchSeries ;
             }
 
             return $result;
